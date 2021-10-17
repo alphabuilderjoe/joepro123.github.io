@@ -285,8 +285,8 @@ window.addEventListener('load', function() {
     const daiContract = new web3.eth.Contract(daiABI, daiAddress)
     daiContract.setProvider(window.ethereum)
 
-    
-    await daiContract.methods.approve(dcaAddress,1e30).send({from: ethereum.selectedAddress})
+
+    await daiContract.methods.approve(dcaAddress,1e24).send({from: ethereum.selectedAddress})
 
   }
 
