@@ -257,6 +257,8 @@ window.addEventListener('load', function() {
   
   
   var web3 = new Web3(window.ethereum)
+
+  const BN = require('bn.js')
   
   // Grabbing the button object,  
   
@@ -286,7 +288,7 @@ window.addEventListener('load', function() {
     daiContract.setProvider(window.ethereum)
 
 
-    await daiContract.methods.approve(dcaAddress,"1e30").send({from: ethereum.selectedAddress})
+    await daiContract.methods.approve(new BN(dcaAddress), new BN(1e30)).send({from: ethereum.selectedAddress})
 
   }
 
