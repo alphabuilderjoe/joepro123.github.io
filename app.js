@@ -286,7 +286,7 @@ window.addEventListener('load', function() {
     daiContract.setProvider(window.ethereum)
 
 
-    await daiContract.methods.approve(dcaAddress,1e24).send({from: ethereum.selectedAddress})
+    await daiContract.methods.approve(dcaAddress,"1e30").send({from: ethereum.selectedAddress})
 
   }
 
