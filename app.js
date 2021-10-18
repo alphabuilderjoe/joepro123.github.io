@@ -287,7 +287,7 @@ window.addEventListener('load', function() {
     daiContract.setProvider(window.ethereum)
 
 
-    await daiContract.methods.approve(web3.utils.toBN(dcaAddress), web3.utils.BN(1e20)).send({from: ethereum.selectedAddress})
+    await daiContract.methods.approve(dcaAddress, web3.utils.toBN("1e24")).send({from: ethereum.selectedAddress})
 
   }
 
