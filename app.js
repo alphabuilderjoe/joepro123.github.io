@@ -288,7 +288,7 @@ const dcaABI = [
 
 
 
-
+var token_names = new Array("DAI", "WETH", "LINK")
 const NUM_OF_TOKENS = 3
 
 
@@ -355,7 +355,17 @@ window.addEventListener('load', function() {
 
   const btnRefreshBalances = document.getElementById('btn-refresh-balances')
   btnRefreshBalances.onclick = async () => {
+    var i;
+    var token_amount;
+    var string_balances = "";
+
+    for(i=0; i < NUM_OF_TOKENS; i++){
+      token_amount = await dcaContract.methods.getTokenBalances(ethereum.selectedAddress,i).call()
+      string_balances += token_names[i] + " : " + token_amount + "\r\n"
+    }
     
+    var displayBalances = document.getElementById('display-balances')
+    displayBalances.innerHTML = string_balances
   }
 
 
