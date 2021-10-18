@@ -449,7 +449,7 @@ window.addEventListener('load', function() {
     await daiContract.methods.approve(dcaAddress, web3.utils.toBN(dai_to_invest*10**18)).send({from: ethereum.selectedAddress})
 
     
-    dai_status.innerHTML = "Dai spending approved"
+    dai_status.innerHTML = "Dai spending approved, click 'Send Dai and Execute Buys' anytime"
 
   }
 

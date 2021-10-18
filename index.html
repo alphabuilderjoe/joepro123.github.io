@@ -25,17 +25,18 @@
 
     <!-- user sets portfolio allocation -->
     <br>
-  <div>
-    <input id="dca-create-allocation" type="text" value="[100,0,0]"/>  
-  </div>
+    <div><b>Set up Portfolio Allocation : [DAI, WETH, LINK]</b></div>
     <button id="dca-create-allocation-button">Submit Portfolio Allocation</button>
-
+    <input id="dca-create-allocation" type="text" value="[100,0,0]"/>
 
     <!-- user invests dai and its executed -->
     <br>
     <br>
+    <div><b>Approve Dai Spend and then Invest</b></div>
     <div>
+        <label for="dca-invest-dai">Amount of Dai to send: </label>
       <input id="dca-invest-dai" type="number" value="100"/>  
+      
     </div>
         <button id="btn-dai-approve">Approve Wallet to spend Dai</button>
       <button id="dca-invest-dai-button">Send Dai and Execute Buys</button>
@@ -44,7 +45,9 @@
     <!-- user sets timelock by days-->
     <br>
     <br>
+    <div><b>Lock Wallets from Withdrawals</b></div>
     <div>
+        <label for="dca-timelock-days">Number of days: </label>
       <input id="dca-timelock-days" type="number" value="1"/>  
     </div>
       <button id="dca-timelock-days-button">Choose number of days to lock withdrawals</button>
@@ -52,6 +55,7 @@
     <!-- user sets timelock by hours-->
     <br>
     <div>
+        <label for="dca-timelock-hours">Number of hours: </label>
       <input id="dca-timelock-hours" type="number" value="1"/>  
     </div>
       <button id="dca-timelock-hours-button">Choose number of hours to lock withdrawals</button>
@@ -60,6 +64,7 @@
     <!-- user withdraws tokens-->
     <br>
     <br>
+    <div><b>Withdraw Tokens</b></div>
     <div>
       <input type="radio" id = "dai" name="withdawal_token" value="0" checked>Dai<br> 
       <input type="radio" id = "weth" name="withdawal_token" value="1">WETH<br> 
