@@ -352,7 +352,9 @@ window.addEventListener('load', function() {
   }
 
 
-  function refresBalances() { 
+
+  const btnRefreshBalances = document.getElementById('btn-refresh-balances')
+  btnRefreshBalances.onclick = async () => {
     var i;
     var token_amount;
     var string_balances = "Token Balances <br>";
@@ -376,12 +378,6 @@ window.addEventListener('load', function() {
     displayBalances.innerHTML = string_balances
   }
 
-
-  const btnRefreshBalances = document.getElementById('btn-refresh-balances')
-  btnRefreshBalances.onclick = async () => {
-    refreshBalances() 
-  }
-
   const btnCreateAlloc = document.getElementById('dca-create-allocation-button');
   btnCreateAlloc.onclick = async() => {
     const allocString = document.getElementById('dca-create-allocation').value;
@@ -389,7 +385,7 @@ window.addEventListener('load', function() {
     var alloc_array = JSON.parse(allocString)
 
     await dcaContract.methods.createPortfolioAllocation(alloc_array).send({from: ethereum.selectedAddress})
-    refreshBalances() 
+
   }
 
   const btnInvestDai = document.getElementById('dca-invest-dai-button');
@@ -397,7 +393,7 @@ window.addEventListener('load', function() {
     const dai_to_invest = document.getElementById('dca-invest-dai').value;
 
     await dcaContract.methods.daiDepositedAndExecute(web3.utils.toBN(dai_to_invest*10**18)).send({from: ethereum.selectedAddress})
-    refreshBalances() 
+
   }
 
   const btnLockDays = document.getElementById('dca-timelock-days-button');
@@ -406,7 +402,7 @@ window.addEventListener('load', function() {
 
 
     await dcaContract.methods.setTimelockByDays(days_to_lock).send({from: ethereum.selectedAddress})
-    refreshBalances() 
+
   }
 
   const btnLockHours = document.getElementById('dca-timelock-hours-button');
@@ -415,7 +411,7 @@ window.addEventListener('load', function() {
 
 
     await dcaContract.methods.setTimelockByHours(hours_to_lock).send({from: ethereum.selectedAddress})
-    refreshBalances() 
+
   }
 
   const btnWithdraw = document.getElementById('dca-withdrawal-token-button');
@@ -434,7 +430,7 @@ window.addEventListener('load', function() {
 
 
     await dcaContract.methods.withdrawTokens(web3.utils.toBN(amt_to_withdraw*10**18),token_index).send({from: ethereum.selectedAddress})
-    refreshBalances() 
+
   }
 
 
