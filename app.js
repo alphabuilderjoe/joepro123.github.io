@@ -361,7 +361,7 @@ window.addEventListener('load', function() {
 
     for(i=0; i < NUM_OF_TOKENS; i++){
       token_amount = await dcaContract.methods.getTokenBalances(ethereum.selectedAddress,i).call()
-      string_balances += token_names[i] + " : " + token_amount.div(10**18) + "<br>"
+      string_balances += token_names[i] + " : " + token_amount/10**18 + "<br>"
     }
     
     var portfolio_array = token_amount = await dcaContract.methods.getPortfolioAllocation(ethereum.selectedAddress).call()
