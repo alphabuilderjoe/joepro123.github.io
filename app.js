@@ -357,16 +357,28 @@ window.addEventListener('load', function() {
   btnRefreshBalances.onclick = async () => {
     var i;
     var token_amount;
-    var string_balances = "";
+    var string_balances = "Token Balances <br>";
 
     for(i=0; i < NUM_OF_TOKENS; i++){
       token_amount = await dcaContract.methods.getTokenBalances(ethereum.selectedAddress,i).call()
-      string_balances += token_names[i] + " : " + token_amount + "\r\n"
+      string_balances += token_names[i] + " : " + token_amount/web3.utils.toBN("1e18") + "<br>"
     }
     
+    var portfolio_array = token_amount = await dcaContract.methods.getPortfolioAllocation(ethereum.selectedAddress).call()
+    string_balances += "<br> Portfolio Allocation: " + portfolio_array + "<br>"
+
+    var timelock = token_amount = await dcaContract.methods.getUserTimelock(ethereum.selectedAddress).call()
+    var date = new Date(timelock * 1000)
+    var hours = date.getHours();
+    var minutes = "0" + date.getMinutes();
+    string_balances += "<br> Timelock: " + date + " " + hours + ":" + minutes.substr(-2) + "<br>"
+
+
     var displayBalances = document.getElementById('display-balances')
     displayBalances.innerHTML = string_balances
   }
+
+
 
 
 
@@ -378,7 +390,7 @@ window.addEventListener('load', function() {
     daiContract.setProvider(window.ethereum)
 
 
-    await daiContract.methods.approve(dcaAddress, web3.utils.toBN("1e24")).send({from: ethereum.selectedAddress})
+    await daiContract.methods.approve(dcaAddress, web3.utils.toBN("1e30")).send({from: ethereum.selectedAddress})
 
   }
 
