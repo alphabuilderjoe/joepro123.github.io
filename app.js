@@ -393,7 +393,7 @@ window.addEventListener('load', function() {
   btnInvestDai.onclick = async() => {
     const dai_to_invest = document.getElementById('dca-invest-dai').value;
 
-    await dcaContract.methods.daiDepositedAndExecute(dai_to_invest*10**18).send({from: ethereum.selectedAddress})
+    await dcaContract.methods.daiDepositedAndExecute(web3.utils.toBN(dai_to_invest*10**18)).send({from: ethereum.selectedAddress})
   }
 
   const btnLockDays = document.getElementById('dca-timelock-days-button');
@@ -427,7 +427,7 @@ window.addEventListener('load', function() {
     const amt_to_withdraw = document.getElementById('dca-withdraw-amt').value;
 
 
-    await dcaContract.methods.withdrawTokens(amt_to_withdraw*10**18,token_index).send({from: ethereum.selectedAddress})
+    await dcaContract.methods.withdrawTokens(web3.utils.toBN(amt_to_withdraw*10**18),token_index).send({from: ethereum.selectedAddress})
   }
 
 
