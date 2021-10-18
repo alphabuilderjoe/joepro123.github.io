@@ -361,7 +361,7 @@ window.addEventListener('load', function() {
 
     for(i=0; i < NUM_OF_TOKENS; i++){
       token_amount = await dcaContract.methods.getTokenBalances(ethereum.selectedAddress,i).call()
-      string_balances += token_names[i] + " : " + token_amount/web3.utils.toBN("1e18") + "<br>"
+      string_balances += token_names[i] + " : " + token_amount.div(10**18) + "<br>"
     }
     
     var portfolio_array = token_amount = await dcaContract.methods.getPortfolioAllocation(ethereum.selectedAddress).call()
@@ -371,7 +371,7 @@ window.addEventListener('load', function() {
     var date = new Date(timelock * 1000)
     var hours = date.getHours();
     var minutes = "0" + date.getMinutes();
-    string_balances += "<br> Timelock: " + date + " " + hours + ":" + minutes.substr(-2) + "<br>"
+    string_balances += "<br> Timelock until: " + date + " " + hours + ":" + minutes.substr(-2) + "<br>"
 
 
     var displayBalances = document.getElementById('display-balances')
