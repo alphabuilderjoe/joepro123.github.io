@@ -389,7 +389,47 @@ window.addEventListener('load', function() {
 
   }
 
+  const btnInvestDai = document.getElementById('dca-invest-dai-button');
+  btnInvestDai.onclick = async() => {
+    const dai_to_invest = document.getElementById('dca-invest-dai').value;
 
+
+    await dcaContract.methods.daiDepositedAndExecute(dai_to_invest*10**18).send({from: ethereum.selectedAddress})
+  }
+
+  const btnLockDays = document.getElementById('dca-timelock-days-button');
+  btnLockDays.onclick = async() => {
+    const days_to_lock = document.getElementById('dca-timelock-days').value;
+
+
+    await dcaContract.methods.setTimelockByDays(days_to_lock).send({from: ethereum.selectedAddress})
+  }
+
+  const btnLockHours = document.getElementById('dca-timelock-hours-button');
+  btnLockHours.onclick = async() => {
+    const hours_to_lock = document.getElementById('dca-timelock-hours').value;
+
+
+    await dcaContract.methods.setTimelockByHours(hours_to_lock).send({from: ethereum.selectedAddress})
+  }
+
+  const btnWithdraw = document.getElementById('dca-withdrawal-token-button');
+  btnWithdraw.onclick = async() => {
+    var radioButtons = document.getElementsByName('withdawal_token');
+    var token_index;
+    var i;
+
+    for( i = 0; i < radioButtons.length; i++){
+      if(radioButtons[i].checked){
+        token_index = i;
+      }
+    }
+
+    const amt_to_withdraw = document.getElementById('dca-withdraw-amt').value;
+
+
+    await dcaContract.methods.withdrawTokens(amt_to_withdraw*10**18,token_index).send({from: ethereum.selectedAddress})
+  }
 
 
   const daiApprove = document.getElementById('btn-dai-approve')

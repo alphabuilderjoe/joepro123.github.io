@@ -31,17 +31,44 @@
     <!-- user sets portfolio allocation -->
     <br>
   <div>
-    <input id="dca-create-allocation" type="text" placeholder="[100,0,0]"/>  
+    <input id="dca-create-allocation" type="text" value="[100,0,0]"/>  
   </div>
     <button id="dca-create-allocation-button">Submit Portfolio Allocation</button>
 
 
     <!-- user invests dai and its executed -->
+    <br>
+    <div>
+      <input id="dca-invest-dai" type="number" value="100"/>  
+    </div>
+      <button id="dca-invest-dai-button">Send Dai and Execute Buys</button>
+
+    <!-- user sets timelock by days-->
+    <br>
+    <div>
+      <input id="dca-timelock-days" type="number" value="1"/>  
+    </div>
+      <button id="dca-timelock-days-button">Choose number of days to lock withdrawals</button>
+
+    <!-- user sets timelock by hours-->
+    <br>
+    <div>
+      <input id="dca-timelock-hours" type="number" value="1"/>  
+    </div>
+      <button id="dca-timelock-hours-button">Choose number of hours to lock withdrawals</button>
 
 
-    <!-- user sets timelock -->
-
-
+    <!-- user withdraws tokens-->
+    <br>
+    <div>
+      <input type="radio" id = "dai" name="withdawal_token" value="0" checked>Dai<br> 
+      <input type="radio" id = "weth" name="withdawal_token" value="1">WETH<br> 
+      <input type="radio" id = "link" name="withdawal_token" value="2">LINK<br>  
+    </div>
+    <div>
+        <input id="dca-withdraw-amt" type="number" value="100"/>  
+    </div>
+      <button id="dca-withdrawal-token-button">Withdraw</button>
 
 
     <script src="app.js"></script>
