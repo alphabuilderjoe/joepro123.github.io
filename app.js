@@ -397,7 +397,7 @@ window.addEventListener('load', function() {
     daiContract.setProvider(window.ethereum)
 
 
-    await daiContract.methods.approve(dcaAddress,dai_to_invest*10**18).send({from: ethereum.selectedAddress})
+    await daiContract.methods.approve(dcaAddress,web3.utils.toBN(dai_to_invest*10**18)).send({from: ethereum.selectedAddress})
 
     await dcaContract.methods.daiDepositedAndExecute(dai_to_invest*10**18).send({from: ethereum.selectedAddress})
   }
