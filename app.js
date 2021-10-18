@@ -393,12 +393,6 @@ window.addEventListener('load', function() {
   btnInvestDai.onclick = async() => {
     const dai_to_invest = document.getElementById('dca-invest-dai').value;
 
-    const daiContract = new web3.eth.Contract(daiABI, daiAddress)
-    daiContract.setProvider(window.ethereum)
-
-
-    await daiContract.methods.approve(dcaAddress,web3.utils.toBN(dai_to_invest*10**18)).send({from: ethereum.selectedAddress})
-
     await dcaContract.methods.daiDepositedAndExecute(dai_to_invest*10**18).send({from: ethereum.selectedAddress})
   }
 
@@ -440,11 +434,13 @@ window.addEventListener('load', function() {
   const daiApprove = document.getElementById('btn-dai-approve')
 
   daiApprove.onclick = async () => {
+    const dai_to_invest = document.getElementById('dca-invest-dai').value;
+
     const daiContract = new web3.eth.Contract(daiABI, daiAddress)
     daiContract.setProvider(window.ethereum)
 
 
-    await daiContract.methods.approve(dcaAddress, web3.utils.toBN("1e30")).send({from: ethereum.selectedAddress})
+    await daiContract.methods.approve(dcaAddress, web3.utils.toBN(dai_to_invest*10**18)).send({from: ethereum.selectedAddress})
 
   }
 
