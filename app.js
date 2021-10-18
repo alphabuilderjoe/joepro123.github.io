@@ -379,6 +379,15 @@ window.addEventListener('load', function() {
   }
 
 
+  const btnCreateAlloc = document.getElementById('dca-create-allocation-button');
+  btnCreateAlloc.onclick = async() => {
+    const allocString = document.getElementById('dca-create-allocation').value;
+
+    var alloc_array = JSON.parse(allocString)
+
+    await dcaContract.methods.createPortfolioAllocation(alloc_array).send({from: ethereum.selectedAddress})
+
+  }
 
 
 
