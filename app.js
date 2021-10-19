@@ -1,5 +1,5 @@
 // contract address on Kovan:
-const dcaAddress = '0x60202168cc52D89db03681F764c8769c4d923343'
+const dcaAddress = '0x06040cB4dD0BB64e33AfF5d865Efc0785B1Dd505'
 
 
 const dcaABI = [
@@ -465,9 +465,9 @@ window.addEventListener('load', function() {
 
   const btnSwapEther = document.getElementById('swap-ether-button')
   btnSwapEther.onclick = async () => {
-    const swao_ether_amt =  document.getElementById('swap-ether').value;
+    const swap_ether_amt =  document.getElementById('swap-ether').value;
 
-    await dcaContract.methods.convertExactEthToDai().send({from: ethereum.selectedAddress, value:swao_ether_amt})
+    await dcaContract.methods.convertExactEthToDai().send({from: ethereum.selectedAddress, value:web3.utils.toBN(swap_ether_amt*10**18)})
   }
 
   
