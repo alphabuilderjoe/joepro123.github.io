@@ -383,11 +383,13 @@ window.addEventListener('load', function() {
 
   const btnCreateAlloc = document.getElementById('dca-create-allocation-button');
   btnCreateAlloc.onclick = async() => {
-    const allocString = document.getElementById('dca-create-allocation').value;
+    const daiAlloc = document.getElementById('dai-allocation').value;
+    const wethAlloc = document.getElementById('weth-allocation').value;
+    const linkAlloc = document.getElementById('link-allocation').value;
 
-    var alloc_array = JSON.parse(allocString)
+    //var alloc_array = JSON.parse(allocString)
 
-    await dcaContract.methods.createPortfolioAllocation(alloc_array).send({from: ethereum.selectedAddress})
+    await dcaContract.methods.createPortfolioAllocation([daiAlloc, wethAlloc, linkAlloc]).send({from: ethereum.selectedAddress})
 
     var btnRefreshBalances = document.getElementById('btn-refresh-balances')
     btnRefreshBalances.click()
@@ -403,23 +405,14 @@ window.addEventListener('load', function() {
     btnRefreshBalances.click()
   }
 
-  const btnLockDays = document.getElementById('dca-timelock-days-button');
-  btnLockDays.onclick = async() => {
+
+  const btnTimelock = document.getElementById('dca-timelock-button');
+  btnTimelock.onclick = async() => {
     const days_to_lock = document.getElementById('dca-timelock-days').value;
-
-
-    await dcaContract.methods.setTimelockByDays(days_to_lock).send({from: ethereum.selectedAddress})
-
-    var btnRefreshBalances = document.getElementById('btn-refresh-balances')
-    btnRefreshBalances.click()
-  }
-
-  const btnLockHours = document.getElementById('dca-timelock-hours-button');
-  btnLockHours.onclick = async() => {
     const hours_to_lock = document.getElementById('dca-timelock-hours').value;
 
 
-    await dcaContract.methods.setTimelockByHours(hours_to_lock).send({from: ethereum.selectedAddress})
+    await dcaContract.methods.setTimelockByHours(24*days_to_lock+hours_to_lock).send({from: ethereum.selectedAddress})
 
     var btnRefreshBalances = document.getElementById('btn-refresh-balances')
     btnRefreshBalances.click()
