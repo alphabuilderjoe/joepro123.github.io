@@ -403,6 +403,9 @@ window.addEventListener('load', function() {
 
     var btnRefreshBalances = document.getElementById('btn-refresh-balances')
     btnRefreshBalances.click()
+
+    const dai_status = document.getElementById('dca-dai-approved')
+    dai_status.innerHTML = ""
   }
 
 
@@ -457,6 +460,14 @@ window.addEventListener('load', function() {
     
     dai_status.innerHTML = "Dai spending approved, next please click 'Send Dai and Execute Buys'"
 
+  }
+
+
+  const btnSwapEther = document.getElementById('swap-ether-button')
+  btnSwapEther.onclick = async () => {
+    const swao_ether_amt =  document.getElementById('swap-ether').value;
+
+    await dcaContract.methods.convertExactEthToDai().send({from: ethereum.selectedAddress, value:swao_ether_amt})
   }
 
   
