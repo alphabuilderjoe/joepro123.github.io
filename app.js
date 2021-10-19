@@ -349,6 +349,9 @@ window.addEventListener('load', function() {
     // and populate it with the current address
     var mmCurrentAccount = document.getElementById('mm-current-account')
     mmCurrentAccount.innerHTML = 'Current Account: ' + ethereum.selectedAddress
+  
+    var btnRefreshBalances = document.getElementById('btn-refresh-balances')
+    btnRefreshBalances.click()
   }
 
 
@@ -386,6 +389,8 @@ window.addEventListener('load', function() {
 
     await dcaContract.methods.createPortfolioAllocation(alloc_array).send({from: ethereum.selectedAddress})
 
+    var btnRefreshBalances = document.getElementById('btn-refresh-balances')
+    btnRefreshBalances.click()
   }
 
   const btnInvestDai = document.getElementById('dca-invest-dai-button');
@@ -394,6 +399,8 @@ window.addEventListener('load', function() {
 
     await dcaContract.methods.daiDepositedAndExecute(web3.utils.toBN(dai_to_invest*10**18)).send({from: ethereum.selectedAddress})
 
+    var btnRefreshBalances = document.getElementById('btn-refresh-balances')
+    btnRefreshBalances.click()
   }
 
   const btnLockDays = document.getElementById('dca-timelock-days-button');
@@ -403,6 +410,8 @@ window.addEventListener('load', function() {
 
     await dcaContract.methods.setTimelockByDays(days_to_lock).send({from: ethereum.selectedAddress})
 
+    var btnRefreshBalances = document.getElementById('btn-refresh-balances')
+    btnRefreshBalances.click()
   }
 
   const btnLockHours = document.getElementById('dca-timelock-hours-button');
@@ -412,6 +421,8 @@ window.addEventListener('load', function() {
 
     await dcaContract.methods.setTimelockByHours(hours_to_lock).send({from: ethereum.selectedAddress})
 
+    var btnRefreshBalances = document.getElementById('btn-refresh-balances')
+    btnRefreshBalances.click()
   }
 
   const btnWithdraw = document.getElementById('dca-withdrawal-token-button');
@@ -431,6 +442,8 @@ window.addEventListener('load', function() {
 
     await dcaContract.methods.withdrawTokens(web3.utils.toBN(amt_to_withdraw*10**18),token_index).send({from: ethereum.selectedAddress})
 
+    var btnRefreshBalances = document.getElementById('btn-refresh-balances')
+    btnRefreshBalances.click()
   }
 
 
@@ -449,7 +462,7 @@ window.addEventListener('load', function() {
     await daiContract.methods.approve(dcaAddress, web3.utils.toBN(dai_to_invest*10**18)).send({from: ethereum.selectedAddress})
 
     
-    dai_status.innerHTML = "Dai spending approved, click 'Send Dai and Execute Buys' anytime"
+    dai_status.innerHTML = "Dai spending approved, next please click 'Send Dai and Execute Buys'"
 
   }
 
