@@ -1,5 +1,5 @@
 // contract address on Kovan:
-const dcaAddress = '0x06040cB4dD0BB64e33AfF5d865Efc0785B1Dd505'
+const dcaAddress = '0x4952842b623BA3bA43Bb2B87ac6C57294430e500'
 
 
 const dcaABI = [
