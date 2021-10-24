@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dollar Cost Averaging Wallet with Timelocks</title>
+    <title>HODL Wallet</title>
+    <style>
+      h1 {text-align:center;}
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 </head>
 <body>
+  <div><h1>HODL Wallet </h1>
+  <h2>Automated crypto portfolio investing with timelocks &#128142; &#128400; &#128640;</h2>
+  </div>
+  <div>Automate your weekly or monthly crypto purchases! Set up your desired portfolio allocations (i.e. percentage of Ether and other ERC20 tokens to purchase). Then, whenever you invest some Dai (ideally on at a fixed weekly or monthly interval), HODL Wallet will automatically purchase ether and other ERC20 tokens according to your portfolio allocation. To enforce long-term holding, you can set a timelock where no withdrawals/selling is permitted. Timelocks can only be extended further, and cannot be brought forward.  </div>
+  <br>
+  <div>HODL Wallet is only available on the Kovan testnet now, and supports DAI, WETH and LINK tokens. If you need Kovan test ether or test dai, obtain them from the links/tools at the bottom</div>
     <div id="mm-detected"></div>
 
+    
     <!-- Connect to MetaMask Wallet -->
     <button id="mm-connect">Connect to MetaMask</button>
     <button id="btn-refresh-balances">Refresh Wallet Status</button>
@@ -102,7 +112,8 @@
     <br>
     <br>
     <div><b>Additional tools to get started:</b></div>
-    <a href="https://faucets.chain.link/kovan?_ga=2.168895329.1127442403.1634373828-2027200173.1634373828">Get Kovan test ether from Chainlink</a>
+    <a href="https://faucets.chain.link/kovan?_ga=2.168895329.1127442403.1634373828-2027200173.1634373828" target="_blank">Get Kovan test ether from Chainlink</a>
+    <br>
     <br>
     <div>
     <label for="swap-ether">Swap some Ether for Kovan Dai:</label>
