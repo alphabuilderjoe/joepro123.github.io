@@ -472,45 +472,4 @@ window.addEventListener('load', function() {
 
   
 
-
-  
-//   // grab the button for input to a contract:
-  
-//   const ssSubmit = document.getElementById('ss-input-button');
-  
-//   ssSubmit.onclick = async () => {
-//     // grab value from input
-    
-//     const ssInputValue = document.getElementById('ss-input-box').value;
-//     console.log(ssInputValue)
-  
-//     var web3 = new Web3(window.ethereum)
-  
-//     // instantiate smart contract instance
-    
-//     const simpleStorage = new web3.eth.Contract(ssABI, ssAddress)
-//     simpleStorage.setProvider(window.ethereum)
-  
-//     await simpleStorage.methods.store(ssInputValue).send({from: ethereum.selectedAddress})
-  
-//   }
-  
-//   const ssGetValue = document.getElementById('ss-get-value')
-  
-//   ssGetValue.onclick = async () => {
-  
-//     var web3 = new Web3(window.ethereum)
-  
-//     const simpleStorage = new web3.eth.Contract(ssABI, ssAddress)
-//     simpleStorage.setProvider(window.ethereum)
-  
-//     var value = await simpleStorage.methods.retrieve().call()
-  
-//     console.log(value)
-  
-//     const ssDisplayValue = document.getElementById('ss-display-value')
-  
-//     ssDisplayValue.innerHTML = 'Current Simple Storage Value: ' + value
-  
-//   }
   
